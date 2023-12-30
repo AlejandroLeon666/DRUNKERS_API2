@@ -1,0 +1,60 @@
+/* Provide sufficient contrast against white background */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+a {
+  color: #0366d6;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+code {
+  color: #E01A76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.bg-navBar{
+  background: #ffffff;
+  padding: 20px;
+}
+
+.bg-image{
+  background: url('https://static.vecteezy.com/system/resources/thumbnails/005/182/612/small/green-abstract-geometric-shape-background-free-vector.jpg') no-repeat;
+  background-size: cover;
+}
+
+.box-div{
+  box-shadow: -2px 7px 13px 1px rgba(0,0,0,0.75);
+-webkit-box-shadow: -2px 7px 13px 1px rgba(0,0,0,0.75);
+-moz-box-shadow: -2px 7px 13px 1px rgba(0,0,0,0.75);
+}
+
+.box-img{
+  box-shadow: -1px 7px 12px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: -1px 7px 12px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 7px 12px 0px rgba(0,0,0,0.75);
+}
+
+.list-image {
+  list-style-type: none;
+  background-image: url('https://static.vecteezy.com/system/resources/previews/001/200/261/non_2x/check-png.png');
+  background-size: cover; /* O 'contain' según tus necesidades */
+  background-repeat: repeat-y; /* Hace que la imagen se repita verticalmente */
+  padding-left: 30px; /* Ajusta el espaciado según sea necesario */
+  width: 300px; /* Ajusta el ancho según tus necesidades */
+  margin: 0; /* Elimina el margen predeterminado del <ul> */
+}
+.list-image li {
+  margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+}
+
+.bg-xbox-green{
+  background: rgb(63,163,100);
+background: linear-gradient(0deg, rgba(63,163,100,1) 3%, rgba(38,130,64,1) 24%, rgba(0,0,0,1) 99%);
+}
