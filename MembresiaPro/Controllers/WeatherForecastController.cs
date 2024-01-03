@@ -105,8 +105,8 @@ namespace MembresiaPro.Controllers
                 transactions = new List<Transaction> { transaction },
                 redirect_urls = new RedirectUrls
                 {
-                    return_url = $"http://jaimes12-001-site3.gtempurl.com//retorno-paypal?orderNumberState={orderNumberState}",
-                    cancel_url = "http://jaimes12-001-site3.gtempurl.com//cancelacion-paypal"
+                    return_url = $"https://localhost:44470/retorno-paypal?orderNumberState={orderNumberState}",
+                    cancel_url = "https://localhost:44470/cancelacion-paypal"
                 }
             };
 

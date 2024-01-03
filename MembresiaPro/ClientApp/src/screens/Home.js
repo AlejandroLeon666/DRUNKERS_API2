@@ -5,12 +5,19 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { ModalPayment } from "./ModalPay/ModalPayment";
 import toast from "react-hot-toast";
+import xboxLogo from "../assets/logoXbox.png";
+import imgPortada from "../assets/fondoJuegos.png";
+import TrustpilotWidget from "../components/Trustoilot";
+import { SiAdguard } from "react-icons/si";
+import { IoLogoWechat } from "react-icons/io5";
+import { IoCloudDownloadSharp } from "react-icons/io5";
+
 
 export const Home = () => {
   const [meses, setMeses] = useState(false);
   const [dataSignature, setdataSignature] = useState("");
   const [filteredData, setFilteredData] = useState([]);
-  const [tarjetasRegalo, setTarjetasRegalo] = useState(0);
+  const [tarjetasRegalo, setTarjetasRegalo] = useState("SE001MSE60");
   const [arrayPedido, setArrayPedido] = useState({});
 
   const [modal, setModal] = useState(false);
@@ -57,7 +64,7 @@ export const Home = () => {
     if (tarjetas == "SE001MSE62") {
       precioTarjeta = 300;
     }
-    if(tarjetas == "SE001MSE63"){
+    if (tarjetas == "SE001MSE63") {
       precioTarjeta = 200;
     }
 
@@ -85,13 +92,12 @@ export const Home = () => {
       ) : (
         <></>
       )}
-      <div className="bg-green-300 sm:min-h-[250vh] md:min-h-[140vh] bg-image grid md:grid-cols-2 sm:grid-cols-1 justify-center items-center" id="inicio">
+      <div
+        className="bg-green-300 sm:min-h-[250vh] md:min-h-[120vh] bg-image grid md:grid-cols-2 sm:grid-cols-1 justify-center items-center"
+        id="inicio"
+      >
         <div className="flex flex-col h-[70vh] " data-aos="fade-right">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Xbox_logo_%282019%29.svg/1280px-Xbox_logo_%282019%29.svg.png"
-            className="w-[30vh] sm:ml-24 md:ml-32"
-            alt=""
-          />
+          <img src={xboxLogo} className="w-[40vh] sm:ml-24 md:ml-32" alt="" />
           <br />
           <br />
           <p
@@ -104,9 +110,12 @@ export const Home = () => {
           </p>
           <br />
           <br />
-          <button onClick={()=> toast.error("This didn't work.")} className="bg-white hover:text-green-700 box-div p-2 sm:w-[45%] md:w-[20%] rounded-md ml-32 font-bold">
+          <a
+            href="/#game-pass"
+            className="bg-white hover:text-green-700 text-center text-black box-div p-2 sm:w-[45%] md:w-[20%] rounded-md ml-32 font-bold animate-bounce"
+          >
             Ver Mas...
-          </button>
+          </a>
           <ul className="sm:ml-20 md:ml-28 mt-12">
             <li className="mt-3 flex">
               <p className="font-bold text-lg  bg-green-900 p-3 text-white rounded-2xl">
@@ -136,15 +145,15 @@ export const Home = () => {
         </div>
         <div className="flex justify-center items-end">
           <img
-            src="https://www.nuuvem.com/lp/es/xbox/images/xbox-render-v2-p-800.png"
-            className="sm:w-[60vh] md:w-[80vh] pt-32"
+            src={imgPortada}
+            className="sm:w-[60vh] md:w-[100vh] pt-32"
             data-aos="fade-left"
             alt=""
           />
         </div>
       </div>
       <div
-        className="sm:min-h-[150vh] md:min-h-[110vh] w-full justify-center flex flex-col items-center"
+        className="sm:min-h-[150vh] md:min-h-[110vh] w-full justify-center flex flex-col items-center sm:pb-5 md:pb-0"
         id="game-pass"
       >
         <div className="flex flex-col justify-center items-center w-full sm:pt-0 md:pt-24">
@@ -166,40 +175,40 @@ export const Home = () => {
           data-aos="flip-left"
           data-aos-easing="ease-out-cubic"
           data-aos-duration="2000"
-          className="grid md:grid-cols-6 sm:grid-cols-3 max-w-[90%] pt-10"
+          className="grid md:grid-cols-6 sm:grid-cols-2 max-w-[90%] pt-10"
         >
           <img
-            src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/07/ea-sports-fc-24-todo-sabemos-sucesor-fifa-24-3084248.jpg"
-            className="md:w-[25vh] md:h-[35vh] sm:w-[17vh] sm:h-[30vh]  m-2 rounded-lg"
+            src="https://cdn5.mtcgame.com/Images/Category/3ac77ff3-3da9-44ce-ace9-7dfc3744e189.jpg"
+            className="md:w-[25vh] md:h-[35vh] sm:w-[22vh] sm:h-[30vh]  m-2 rounded-lg"
             alt=""
           />
           <img
-            src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/07/ea-sports-fc-24-todo-sabemos-sucesor-fifa-24-3084248.jpg"
-            className="md:w-[25vh] md:h-[35vh] sm:w-[17vh] sm:h-[30vh]  m-2 rounded-lg"
+            src="https://store-images.s-microsoft.com/image/apps.21536.13727851868390641.c9cc5f66-aff8-406c-af6b-440838730be0.68796bde-cbf5-4eaa-a299-011417041da6"
+            className="md:w-[25vh] md:h-[35vh] sm:w-[22vh] sm:h-[30vh]  m-2 rounded-lg"
             alt=""
           />
           <img
-            src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/07/ea-sports-fc-24-todo-sabemos-sucesor-fifa-24-3084248.jpg"
-            className="md:w-[25vh] md:h-[35vh] sm:w-[17vh] sm:h-[30vh]  m-2 rounded-lg"
+            src="https://uvejuegos.com/img/caratulas/61284/fortnite.jpg"
+            className="md:w-[25vh] md:h-[35vh] sm:w-[22vh] sm:h-[30vh]  m-2 rounded-lg"
             alt=""
           />
           <img
-            src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/07/ea-sports-fc-24-todo-sabemos-sucesor-fifa-24-3084248.jpg"
-            className="md:w-[25vh] md:h-[35vh] sm:w-[17vh] sm:h-[30vh]  m-2 rounded-lg"
+            src="https://m.media-amazon.com/images/I/71NUdBp8okL._AC_UF894,1000_QL80_.jpg"
+            className="md:w-[25vh] md:h-[35vh] sm:w-[22vh] sm:h-[30vh]  m-2 rounded-lg"
             alt=""
           />
           <img
-            src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/07/ea-sports-fc-24-todo-sabemos-sucesor-fifa-24-3084248.jpg"
-            className="md:w-[25vh] md:h-[35vh] sm:w-[17vh] sm:h-[30vh]  m-2 rounded-lg"
+            src="https://i.pinimg.com/originals/1b/9f/77/1b9f772d10ae2cfce18fab1b05705810.png"
+            className="md:w-[25vh] md:h-[35vh] sm:w-[22vh] sm:h-[30vh]  m-2 rounded-lg"
             alt=""
           />
           <img
-            src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/07/ea-sports-fc-24-todo-sabemos-sucesor-fifa-24-3084248.jpg"
-            className="md:w-[25vh] md:h-[35vh] sm:w-[17vh] sm:h-[30vh]  m-2 rounded-lg"
+            src="https://cdn1.epicgames.com/offer/b7773a08a6fa41e3a0fbc4c1e51c95a4/EGS_F123_Codemasters_S2_1200x1600-9ee0158a6d9f052deb753af836f9bd8d"
+            className="md:w-[25vh] md:h-[35vh] sm:w-[22vh] sm:h-[30vh]  m-2 rounded-lg"
             alt=""
           />
-          <div className="md:col-span-6 sm:col-span-3 justify-center text-center items-center">
-            <button className="box-div bg-green-600 hover:bg-green-500 rounded-lg text-white font-bold p-3 mt-3">
+          <div className="md:col-span-6 sm:col-span-2 justify-center text-center items-center">
+            <button className="box-div bg-green-600 hover:bg-green-500 rounded-lg text-white font-bold p-3 mt-3 animate-bounce">
               Garantiza tu suscripción
             </button>
           </div>
@@ -267,7 +276,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />{" "}
                 Disfruta de cientos de juegos de alta calidad en consola, PC y
                 la nube
@@ -277,7 +286,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />
                 Nuevos juegos agregados constantemente
               </li>
@@ -286,7 +295,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />
                 Títulos de Xbox Game Studios el mismo día de su lanzamiento
               </li>
@@ -295,7 +304,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />
                 Descuentos y ofertas exclusivas para miembros
               </li>
@@ -304,7 +313,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />
                 Recompensas gratuitas, como contenido en el juego y ofertas de
                 socios
@@ -314,7 +323,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />
                 Desbloquea ventajas de Riot Games
               </li>
@@ -360,7 +369,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />{" "}
                 Juega en consola a cientos de títulos de alta calidad
               </li>
@@ -369,7 +378,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />
                 Nuevos juegos agregados constantemente
               </li>
@@ -378,7 +387,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />
                 Títulos de Xbox Game Studios el mismo día de su lanzamiento
               </li>
@@ -387,7 +396,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />
                 Descuentos y ofertas exclusivas para miembros
               </li>
@@ -396,7 +405,7 @@ export const Home = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Light_green_check.svg/1200px-Light_green_check.svg.png"
                   alt=""
                   data-aos="flip-up"
-                  className="max-h-[25px]"
+                  className="max-h-[25px] m-2"
                 />
                 Desbloquea ventajas de Riot Games
               </li>
@@ -513,7 +522,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className="sm:min-h-[185vh] bg-xbox-green md:min-h-[160vh] w-full flex flex-col items-center">
+      <div className="sm:min-h-[185vh] bg-xbox-green md:min-h-[160vh] w-full flex flex-col items-center pb-9">
         <div
           className="flex flex-col justify-center items-center w-full sm:pt-0 md:pt-20"
           data-aos="fade-down"
@@ -529,6 +538,8 @@ export const Home = () => {
             nube, Xbox Live Gold y mucho más.
           </p>
         </div>
+        <br />
+        <br />
         <div className="grid md:grid-cols-2 sm:grid-cols-1 md:max-w-[80%] sm:max-w-[95%] w-full pt-10">
           <div className="h-full p-5 text-white m-3 rounded-2xl">
             <img
@@ -555,7 +566,8 @@ export const Home = () => {
             <h1 className="text-center font-bold text-3xl">Elige el tuyo</h1>
             <br />
             <div data-aos="fade-down-left" className="grid grid-cols-2 w-full">
-              {filteredData && filteredData.map((item) => (
+              {filteredData &&
+                filteredData.map((item) => (
                   <button
                     onClick={() => {
                       setTarjetasRegalo(item.Sku);
@@ -563,20 +575,19 @@ export const Home = () => {
                     className={` p-3 rounded-lg font-bold m-2 text-white border-2 border-white`}
                   >
                     {item.Sku == "SE001MSE63"
-                  ? "200"
-                  : item.Sku == "SE001MSE62"
-                  ? "300"
-                  : item.Sku == "SE001MSE61"
-                  ? "600"
-                  : "1000"}
+                      ? "200"
+                      : item.Sku == "SE001MSE62"
+                      ? "300"
+                      : item.Sku == "SE001MSE61"
+                      ? "600"
+                      : "1000"}
                   </button>
                 ))}
-              
             </div>
 
             <div className="flex justify-center sm:pt-4">
               <button
-                className="box-div bg-green-600 hover:bg-green-500 rounded-lg text-white font-bold py-3 px-14 mt-3"
+                className="box-div bg-green-600 animate-bounce hover:bg-green-500 rounded-lg text-white font-bold py-3 px-14 mt-3"
                 onClick={() => paymentPost(tarjetasRegalo)}
               >
                 Unete por MEX${" "}
@@ -587,9 +598,35 @@ export const Home = () => {
                   : tarjetasRegalo == "SE001MSE61"
                   ? "600"
                   : "1000"}
-              </button> 
+              </button>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="bg-black md:h-[15vh] sm:h-[35vh] grid md:grid-cols-4 sm:grid-cols-2 items-center">
+        <div className="pl-10 text-white flex justify-center items-center">
+        <IoCloudDownloadSharp className="text-white text-3xl m-3"/>
+          <div>
+            <p>Super fast</p>
+            <p className="text-gray-400">Instant digital dowload</p>
+          </div>
+        </div>
+         <div className="pl-10 text-white flex justify-center items-center">
+          <SiAdguard className="text-white text-3xl m-3"/>
+          <div>
+            <p>Reliable & safe</p>
+            <p className="text-gray-400"> Over 10 000 games</p>
+          </div>
+        </div>
+        <div className="pl-10 text-white flex justify-center items-center">
+          <IoLogoWechat className="text-white text-3xl m-3"/>
+          <div>
+            <p>Customer support</p>
+            <p className="text-gray-400"> Human support 24/7</p>
+          </div>
+        </div>
+        <div className="pl-10 text-white text-center flex justify-center items-center">
+        <TrustpilotWidget />
         </div>
       </div>
     </div>

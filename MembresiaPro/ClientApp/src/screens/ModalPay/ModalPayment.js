@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import * as CryptoJS from "crypto-js";
 import toast from "react-hot-toast";
+import { IoClose } from "react-icons/io5";
 
 export const ModalPayment = ({ arrayPedido, setModal, modal }) => {
   const [description, setDescription] = useState("");
@@ -32,7 +33,7 @@ export const ModalPayment = ({ arrayPedido, setModal, modal }) => {
 
   const consultarStock = (codigo) => {
     toast.loading('Loading...');
-    const body = [{ Sku: arrayPedido.Sku, Quantity: "1" }];
+    const body = [{ Sku: 'SE000KPK02', Quantity: "1" }];
     axios
       .post(
         `https://intcomex-test.apigee.net/v1/placeorder?${cadenaPeticion}&customerordernumber=${codigo}`,
@@ -59,7 +60,7 @@ export const ModalPayment = ({ arrayPedido, setModal, modal }) => {
   const pagoPaypal = () => {
     axios
       .post(
-        `https://localhost:44470/weatherforecast/paypal?Nombre=${description}&precio=${precioTarjeta}&cantidad=1&sku=${arrayPedido.Sku}&orderNumberState=${orderNumberState}`
+        `https://localhost:44470/weatherforecast/paypal?Nombre=${description}&precio=${precioTarjeta}&cantidad=1&sku=${'SE000KPK02'}&orderNumberState=${orderNumberState}`
       )
       .then((res) => {
         console.log(res.data.approvalUrl)
@@ -91,33 +92,27 @@ export const ModalPayment = ({ arrayPedido, setModal, modal }) => {
 
   return (
     <Modal isOpen={modal} toggle={toggle}>
-      <ModalHeader toggle={toggle}>{description}</ModalHeader>
+      <ModalHeader className="">
+        <h1>{description}</h1>
+        <IoClose  className="text-2xl cursor-pointer" onClick={toggle}/>
+      </ModalHeader>
       <ModalBody>
         <h1 className="text-center text-xl font-bold">
           Elige como quieres pagar
         </h1>
       </ModalBody>
-      <div className="grid grid-cols-2 w-full">
+      <div className="grid grid-cols-1 w-full">
+        <br /><br />
         <button
-          className={`p-3 rounded-xl m-3 ${description? 'bg-blue-600 text-white' : 'bg-gray-600 text-white'}`}
+          className={`p-3 rounded-xl m-3 ${description? 'bg-blue-600 text-white hover:bg-blue-500' : 'bg-gray-600 text-white'}`}
           onClick={pagoPaypal}
           disabled={description? false : true}
         >
           Pagar con PayPal
         </button>
         <br />
-        <button className="bg-white text-blue-600 p-3 rounded-xl border-2 border-blue-500 m-3">
-          Pagar con Stipe
-        </button>
+        <br /><br /><br />
       </div>
-      <ModalFooter>
-        <Button color="primary" onClick={toggle}>
-          Aceptar
-        </Button>{" "}
-        <Button color="secondary" onClick={toggle}>
-          Cancelar
-        </Button>
-      </ModalFooter>
     </Modal>
   );
 };
