@@ -33,7 +33,7 @@ export const ModalPayment = ({ arrayPedido, setModal, modal }) => {
 
   const consultarStock = (codigo) => {
     toast.loading('Loading...');
-    const body = [{ Sku: 'SE000KPK02', Quantity: "1" }];
+    const body = [{ Sku: arrayPedido.Sku, Quantity: "1" }];
     axios
       .post(
         `https://intcomex-test.apigee.net/v1/placeorder?${cadenaPeticion}&customerordernumber=${codigo}`,
@@ -60,14 +60,13 @@ export const ModalPayment = ({ arrayPedido, setModal, modal }) => {
   const pagoPaypal = () => {
     axios
       .post(
-        `https://localhost:44470/weatherforecast/paypal?Nombre=${description}&precio=${precioTarjeta}&cantidad=1&sku=${'SE000KPK02'}&orderNumberState=${orderNumberState}`
+        `https://localhost:44470/weatherforecast/paypal?Nombre=${description}&precio=${precioTarjeta}&cantidad=1&sku=${arrayPedido.Sku}&orderNumberState=${orderNumberState}`
       )
       .then((res) => {
-        console.log(res.data.approvalUrl)
         window.location.href = res.data.approvalUrl;
+        console.log(res.data.approvalUrl)
       })
       .catch((res) => {
-        console.log(res)
       });
   };
 

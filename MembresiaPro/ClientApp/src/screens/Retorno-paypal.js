@@ -43,14 +43,12 @@ export const RetornoPaypal = () => {
         },
       })
       .then((res) => {
-        console.log("token", res.data[0])
         setDataToken(res.data[0])
         setProductKey(res.data[0].Tokens[0].ProductKey)
         setLinkUrl(res.data[0].Tokens[0].LinkUrl)
         getOrder();
       })
       .catch((error) => {
-        console.error(error.response);
       });
   };
 
@@ -65,8 +63,6 @@ export const RetornoPaypal = () => {
         }
       )
       .then((res) => {
-        console.log("order", res.data);
-        console.log('descrip',res.data.Items[0].Product.Description);
         setNameDescription(res.data.Items[0].Product.Description)
         setLoading(true)  
       })
