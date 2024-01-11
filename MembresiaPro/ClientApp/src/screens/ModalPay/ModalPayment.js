@@ -53,6 +53,8 @@ export const ModalPayment = ({ arrayPedido, setModal, modal }) => {
       })
       .catch((error) => {
         console.error(error.response);
+        toast.dismiss();
+        toast.error("Algo salio mal!")
       });
   };
 
@@ -94,6 +96,29 @@ export const ModalPayment = ({ arrayPedido, setModal, modal }) => {
     if (arrayPedido?.Sku == "SE001MSE63") {
       setPrecioTarjeta(200);
     }
+    if (arrayPedido?.Sku == "SE014MSE37") {
+      setPrecioTarjeta(249);
+    }
+    if (arrayPedido?.Sku == "SE014MSE38") {
+      setPrecioTarjeta(749);
+    }
+    if (arrayPedido?.Sku == "SE017MSE63") {
+      setPrecioTarjeta(449);
+    }
+    if (arrayPedido?.Sku == "SE026MSE45") {
+      setPrecioTarjeta(169);
+    }
+    if (arrayPedido?.Sku == "SE026MSE46") {
+      setPrecioTarjeta(419);
+    }
+    if (arrayPedido?.Sku == "SE026MSE47") {
+      setPrecioTarjeta(839);
+    }
+    if (arrayPedido?.Sku == "SE026MSE48") {
+      setPrecioTarjeta(1159);
+    }
+
+    console.log('arrayPedido?.Sku',arrayPedido?.Sku)
   }, []);
 
   return (

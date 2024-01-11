@@ -25,12 +25,12 @@ export const Home = () => {
 
   const utcDate = new Date().toISOString();
 
-  const dataCripto = `a9b494c7-f74e-49e4-8bdb-22ba4245bdf7,cc8d80e6-226e-4a11-9f45-a5ec911e5767,${utcDate}`;
+  const dataCripto = `5c3a65b0-b617-423f-8940-0356ede39f47,60546ce5-a23a-4bbb-bd0a-caaf1dc47b54,${utcDate}`;
 
   const peticionFunction = async () => {
     const hash = CryptoJS.SHA256(dataCripto).toString();
 
-    const cadenaPeticion = `apiKey=a9b494c7-f74e-49e4-8bdb-22ba4245bdf7&utcTimeStamp=${utcDate}&signature=${hash}`;
+    const cadenaPeticion = `apiKey=5c3a65b0-b617-423f-8940-0356ede39f47&utcTimeStamp=${utcDate}&signature=${hash}`;
 
     setdataSignature(cadenaPeticion);
 
@@ -46,6 +46,8 @@ export const Home = () => {
           res.data.filter((item) => item?.Brand?.Description === "XBOX")
         );
 
+        console.log('data productos', res.data)
+
         // Imprimir el nuevo arreglo con los datos filtrados
       })
       .catch((error) => {
@@ -56,6 +58,8 @@ export const Home = () => {
   let precioTarjeta = 0;
 
   function paymentPost(tarjetas) {
+    
+    console.log('el sku', tarjetas)
     if (tarjetas == "SE001MSE60") {
       precioTarjeta = 1000;
     }
@@ -265,7 +269,7 @@ export const Home = () => {
             </div>
             <br />
             <div className="flex justify-center sm:pt-4">
-              <button className="box-div bg-green-600 hover:bg-green-500 rounded-lg text-white font-bold py-3 px-14 mt-3">
+              <button onClick={() => paymentPost(meses ? "SE014MSE38" : "SE014MSE37")} className="box-div bg-green-600 hover:bg-green-500 rounded-lg text-white font-bold py-3 px-14 mt-3">
                 Unete por MEX$ {meses ? "689" : "229"}
               </button>
             </div>
@@ -352,13 +356,13 @@ export const Home = () => {
             <p className="text-center font-bold text-lg"> Plan disponible:</p>
             <br />
             <div className="flex justify-center">
-              <button className="bg-green-800 text-white py-3 px-[40%] rounded-lg font-bold m-2">
+              <button disabled={true} className="bg-green-800 text-white py-3 px-[40%] rounded-lg font-bold m-2">
                 3 meses
               </button>
             </div>
             <br />
             <div className="flex justify-center">
-              <button className="box-div bg-green-600 hover:bg-green-500 rounded-lg text-white font-bold py-3 px-14 mt-3">
+              <button onClick={() => paymentPost("SE017MSE63")} className="box-div bg-green-600 hover:bg-green-500 rounded-lg text-white font-bold py-3 px-14 mt-3">
                 Unete por MEX$ 450
               </button>
             </div>
@@ -454,7 +458,7 @@ export const Home = () => {
             <h1 className="text-center font-bold text-white md:text-3xl sm:text-xl md:mt-7 sm:mt-4">
               MEX$ 169
             </h1>
-            <button className="box-img md:mt-7 sm:mt-4 hover:text-green-700 bg-white font-bold md:text-lg sm:text-base py-2 px-4 rounded-lg">
+            <button onClick={() => paymentPost("SE026MSE45")} className="box-img md:mt-7 sm:mt-4 hover:text-green-700 bg-white font-bold md:text-lg sm:text-base py-2 px-4 rounded-lg">
               Quiero 1 mes
             </button>
           </div>
@@ -475,7 +479,7 @@ export const Home = () => {
             <h1 className="text-center font-bold text-white md:text-3xl sm:text-xl md:mt-7 sm:mt-4">
               MEX$ 419
             </h1>
-            <button className="box-img md:mt-7 hover:text-green-700 sm:mt-4 bg-white font-bold md:text-lg sm:text-base py-2 px-4 rounded-lg">
+            <button onClick={() => paymentPost("SE026MSE46")} className="box-img md:mt-7 hover:text-green-700 sm:mt-4 bg-white font-bold md:text-lg sm:text-base py-2 px-4 rounded-lg">
               Quiero 3 mes
             </button>
           </div>
@@ -496,7 +500,7 @@ export const Home = () => {
             <h1 className="text-center font-bold text-white md:text-3xl sm:text-xl md:mt-7 sm:mt-4">
               MEX$ 839
             </h1>
-            <button className="box-img md:mt-7 hover:text-green-700 sm:mt-4 bg-white font-bold md:text-lg sm:text-base py-2 px-4 rounded-lg">
+            <button onClick={() => paymentPost("SE026MSE47")} className="box-img md:mt-7 hover:text-green-700 sm:mt-4 bg-white font-bold md:text-lg sm:text-base py-2 px-4 rounded-lg">
               Quiero 6 mes
             </button>
           </div>
@@ -517,7 +521,7 @@ export const Home = () => {
             <h1 className="text-center font-bold text-white md:text-3xl sm:text-xl md:mt-7 sm:mt-4">
               MEX$ 1,159
             </h1>
-            <button className="box-img md:mt-7 sm:mt-2 hover:text-green-700 bg-white font-bold md:text-base sm:text-base py-2 px-4 rounded-lg">
+            <button onClick={() => paymentPost("SE026MSE48")} className="box-img md:mt-7 sm:mt-2 hover:text-green-700 bg-white font-bold md:text-base sm:text-base py-2 px-4 rounded-lg">
               Quiero 12 meses
             </button>
           </div>
