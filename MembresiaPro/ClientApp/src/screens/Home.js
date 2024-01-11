@@ -11,6 +11,7 @@ import TrustpilotWidget from "../components/Trustoilot";
 import { SiAdguard } from "react-icons/si";
 import { IoLogoWechat } from "react-icons/io5";
 import { IoCloudDownloadSharp } from "react-icons/io5";
+import ApiConfig from "../components/ApiConfig";
 
 
 export const Home = () => {
@@ -34,7 +35,7 @@ export const Home = () => {
     setdataSignature(cadenaPeticion);
 
     axios
-      .get("https://intcomex-test.apigee.net/v1/getcatalog", {
+      .get(`${ApiConfig.general}/getcatalog`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${cadenaPeticion}`,
@@ -93,15 +94,15 @@ export const Home = () => {
         <></>
       )}
       <div
-        className="bg-green-300 sm:min-h-[250vh] md:min-h-[120vh] bg-image grid md:grid-cols-2 sm:grid-cols-1 justify-center items-center"
+        className="bg-green-300 sm:min-h-[200vh] md:min-h-[140vh] bg-image grid md:grid-cols-2 sm:grid-cols-1 justify-center items-center"
         id="inicio"
       >
-        <div className="flex flex-col h-[70vh] " data-aos="fade-right">
-          <img src={xboxLogo} className="w-[40vh] sm:ml-24 md:ml-32" alt="" />
+        <div className="flex flex-col items-center h-[70vh] " data-aos="fade-right">
+          <img src={xboxLogo} className="w-[40vh] md:ml-32" alt="" />
           <br />
           <br />
           <p
-            className="w-[70%] sm:ml-20 md:ml-28 text-white font-semibold text-2xl"
+            className="w-[70%] md:ml-28 text-white font-semibold text-2xl"
             data-aos="fade-down"
           >
             Tú preguntaste y Drunkers ha respondido. Ahora tenemos algunos de
@@ -112,11 +113,11 @@ export const Home = () => {
           <br />
           <a
             href="/#game-pass"
-            className="bg-white hover:text-green-700 text-center text-black box-div p-2 sm:w-[45%] md:w-[20%] rounded-md ml-32 font-bold animate-bounce"
+            className="bg-white hover:text-green-700 text-center text-black box-div p-2 sm:w-[45%] md:w-[20%] rounded-md  font-bold animate-bounce"
           >
             Ver Mas...
           </a>
-          <ul className="sm:ml-20 md:ml-28 mt-12">
+          <ul className="sm:ml-3 md:ml-28 mt-12">
             <li className="mt-3 flex">
               <p className="font-bold text-lg  bg-green-900 p-3 text-white rounded-2xl">
                 1
@@ -214,9 +215,9 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className="sm:min-h-[180vh] bg-xbox-green md:min-h-[170vh] w-full flex flex-col items-center">
+      <div className=" bg-xbox-green md:min-h-[170vh] w-full flex flex-col items-center">
         <div
-          className="flex flex-col justify-center items-center w-full sm:pt-0 md:pt-20"
+          className="flex flex-col justify-center items-center w-full sm:p-5 md:pt-20"
           data-aos="fade-down"
           id="subcripcion"
         >
@@ -231,7 +232,7 @@ export const Home = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-2 sm:grid-cols-1 md:max-w-[70%] sm:max-w-[95%] w-full pt-10">
-          <div className="bg-gray-600 h-full p-5 box-div text-white m-3 rounded-2xl">
+          <div className="bg-gray-600 p-5 box-div text-white m-3 rounded-2xl">
             <h1 className="text-center  font-bold text-3xl">Ultimate</h1>
             <br />
             <p className="text-center font-bold text-lg"> Elige tu plan:</p>
@@ -345,7 +346,7 @@ export const Home = () => {
             </div>
           </div>
           {/* ==================================================================================================================================================================================== */}
-          <div className="bg-green-700  h-full p-5 m-3 text-white rounded-2xl box-div">
+          <div className="bg-green-700  p-5 m-3 text-white rounded-2xl box-div">
             <h1 className="text-center font-bold text-3xl">Consola</h1>
             <br />
             <p className="text-center font-bold text-lg"> Plan disponible:</p>
@@ -522,7 +523,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className="sm:min-h-[185vh] bg-xbox-green md:min-h-[160vh] w-full flex flex-col items-center pb-9">
+      <div className="sm:min-h-[245vh] bg-xbox-green md:min-h-[160vh] w-full flex flex-col items-center pb-9">
         <div
           className="flex flex-col justify-center items-center w-full sm:pt-0 md:pt-20"
           data-aos="fade-down"
@@ -550,7 +551,7 @@ export const Home = () => {
             />
           </div>
           {/* ==================================================================================================================================================================================== */}
-          <div className=" h-full p-5 m-3 text-white rounded-2xl box-div mb-0">
+          <div className=" p-5 m-3 text-white rounded-2xl md:box-div mb-0">
             <h1 className="text-center font-bold text-3xl">
               Tarjeta de regalo XBOX
             </h1>
