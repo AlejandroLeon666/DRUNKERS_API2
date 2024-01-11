@@ -18,7 +18,7 @@ const NavMenu = () => {
   };
 
   return (
-    <header className="fixed w-full max-w-full z-50">
+    <header className="fixed w-[100%] max-w-full z-50">
       <Navbar
         className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow bg-navBar"
         light

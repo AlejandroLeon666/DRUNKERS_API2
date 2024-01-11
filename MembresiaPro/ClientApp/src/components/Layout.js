@@ -9,7 +9,7 @@ export class Layout extends Component {
   render() {
     return (
       <div className="max-w-full">
-        <Toaster position="top-right" reverseOrder={false} />
+        <Toaster position="top-center" className="max-w-[50%]" reverseOrder={false} />
         <NavMenu />
         <div className="min-w-full max-w-full">{this.props.children}</div>
       </div>
