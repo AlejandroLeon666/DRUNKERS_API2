@@ -14,12 +14,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Conekta" Version="2.1.1462213915" />
-    <PackageReference Include="Conekta.net" Version="6.0.7" />
+    <PackageReference Include="Conekta.net" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.16" />
     <PackageReference Include="PayPal" Version="1.9.1" />
-    <PackageReference Include="Stripe.net" Version="43.8.0" />
-    <PackageReference Include="WooCommerceNET" Version="0.8.6" />
   </ItemGroup>
 
   <ItemGroup>

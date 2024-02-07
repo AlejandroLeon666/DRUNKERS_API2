@@ -1,23 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Conekta.net.Api;
+using Conekta.net.Client;
+using Conekta.net.Model;
+using MembresiaPro.Models;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PayPal.Api;
-using Stripe.Checkout;
-using System.Globalization;
-using WooCommerce.NET.WordPress.v2;
-using WooCommerceNET;
-using WooCommerceNET.WooCommerce.v3;
-using WooCommerceNET.WooCommerce.v3.Extension;
-using Conekta.net.Client;
-using Conekta.net.Api;
-using Conekta.net.Model;
-using Stripe;
-using MembresiaPro.Models;
-using Product = WooCommerceNET.WooCommerce.v3.Product;
 
 namespace MembresiaPro.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -126,49 +118,6 @@ namespace MembresiaPro.Controllers
                 // Manejar errores
                 return BadRequest($"Error al crear el pago: {ex.Message}");
             }
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Post(string Nombre, decimal precio, int cantidad)
-        {
-
-            var itemOption = new
-            {
-                name = Nombre,
-                price = precio,
-                quantity = cantidad,
-            };
-
-            var domain = "https://localhost:44470/";
-            var options = new SessionCreateOptions
-            {
-                SuccessUrl = domain,
-                CancelUrl = domain + "CheckOut/Login",
-                LineItems = new List<SessionLineItemOptions>(),
-                Mode = "payment"
-            };
-
-            var sessionListItem = new SessionLineItemOptions
-            {
-                PriceData = new SessionLineItemPriceDataOptions
-                {
-                    UnitAmount = (long)(itemOption.price * itemOption.quantity),
-                    Currency = "mxn",
-                    ProductData = new SessionLineItemPriceDataProductDataOptions
-                    {
-                        Name = itemOption.name.ToString(),
-                    }
-                },
-                Quantity = itemOption.quantity
-            };
-            options.LineItems.Add(sessionListItem);
-
-            var service = new SessionService();
-            Session session = await service.CreateAsync(options);
-
-            var urlPayment = new { sessionUrl = session.Url };
-
-            return Ok(urlPayment);
         }
     }
 
