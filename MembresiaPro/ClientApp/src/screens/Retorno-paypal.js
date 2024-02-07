@@ -25,11 +25,11 @@ export const RetornoPaypal = () => {
   //==========================================================================================================
   const utcDate = new Date().toISOString();
 
-  const dataCripto = `a9b494c7-f74e-49e4-8bdb-22ba4245bdf7,cc8d80e6-226e-4a11-9f45-a5ec911e5767,${utcDate}`;
+  const dataCripto = `5c3a65b0-b617-423f-8940-0356ede39f47,60546ce5-a23a-4bbb-bd0a-caaf1dc47b54,${utcDate}`;
 
   const hash = CryptoJS.SHA256(dataCripto).toString();
 
-  const cadenaPeticion = `apiKey=a9b494c7-f74e-49e4-8bdb-22ba4245bdf7&utcTimeStamp=${utcDate}&signature=${hash}`;
+  const cadenaPeticion = `apiKey=5c3a65b0-b617-423f-8940-0356ede39f47&utcTimeStamp=${utcDate}&signature=${hash}`;
   //==========================================================================================================
 
   const generateToken = (orderNumber) => {

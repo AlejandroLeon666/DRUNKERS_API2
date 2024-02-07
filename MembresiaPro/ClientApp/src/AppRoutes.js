@@ -1,6 +1,7 @@
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./screens/Home";
+import { ConektaPay } from "./screens/ModalPay/ConektaPay";
 import { RetornoPaypal } from "./screens/Retorno-paypal";
 
 const AppRoutes = [
@@ -19,6 +20,10 @@ const AppRoutes = [
   {
     path: '/retorno-paypal',
     element: <RetornoPaypal />
+  },
+  {
+    path: '/test',
+    element: <ConektaPay />
   }
 ];
 
